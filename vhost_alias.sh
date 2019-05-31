@@ -14,7 +14,7 @@ done < /tmp/vhost_arr.txt
 
 # function to show the menu
 menu() {
-  echo "Please select an option by typing in the corresponding number"
+  echo "Please select the domain number in which you want to add an alias"
   echo ""
   for (( i=1; i<${#menu[@]}; i++ )); do
     echo "$i) ${menu[$i]}"
@@ -35,7 +35,7 @@ done
 
 #echo "You said '$option' which is '${menu[$option]}'"
 cat /${menu[$option]}
-echo -n "Type your new domain name: "; read newdomainname
+echo -n "Type your new domain name alias that will be add to ${menu[$option]}: "; read newdomainname
 sed "s/ServerAlias.*/& $newdomainname/" -i /etc/apache2/sites-available/${menu[$option]}.conf
 a2dissite ${menu[$option]}
 a2ensite ${menu[$option]}
