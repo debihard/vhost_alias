@@ -40,5 +40,5 @@ sed "s/ServerAlias.*/& $newdomainname/" -i /etc/apache2/sites-available/${menu[$
 a2dissite ${menu[$option]}
 a2ensite ${menu[$option]}
 certbot --apache --register-unsafely-without-email;
-echo -e $"Complete!\nYou just add new alias  $newdomainname to Virtual Host config"
+echo -e $"Complete!\nYou just add new alias  $newdomainname to ${menu[$option]}'s virtual host config"
 exit 0;
